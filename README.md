@@ -13,4 +13,3 @@ A terminal based app for watching cryptocurrency in different currency
 ## Available Scripts
 
 -- coming soon
-

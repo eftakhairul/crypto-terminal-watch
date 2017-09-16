@@ -20,11 +20,6 @@ type CryptoApi struct {
 	cryptoApi Crypto
 }
 
-func NewCrypto(c Crypto) Crypto {
-	var cryptoApi Crypto =  CryptoApi{cryptoApi: c}
-	return cryptoApi;
-}
-
 
 
 

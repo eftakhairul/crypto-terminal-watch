@@ -28,7 +28,8 @@ func Execute() {
 		}
 
 		ccm := crypto.New()
-		ccm.GetCoinData(name)
+		coins, _ := ccm.GetCoinData(name)
+		Render(coins)
 
 		return nil
 	}

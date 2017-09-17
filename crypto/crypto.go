@@ -9,10 +9,10 @@ type Crypto interface {
 
 //Coin struct
 type Coin struct {
-	name   string
-	symbol string
-	price  float64
-	currency string
+	Name   string
+	Symbol string
+	Price  float64
+	Currency string
 }
 
 

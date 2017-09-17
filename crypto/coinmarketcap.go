@@ -12,16 +12,22 @@ func New() *Coinmarketcap {
 }
 
 
-func (c Coinmarketcap) GetCoinData(name string) {
+func (c Coinmarketcap) GetCoinData(name string) ([]Coin, error) {
 
-	fmt.Println(name)
-
+	coins := make([]Coin, 1)
 
 	// Get global market data
 	marketInfo, err := coinApi.GetCoinData(name)
 	if err != nil {
 		fmt.Println(err)
+		return coins, err
 	} else {
-		fmt.Println(marketInfo)
+
+		coins[0].Name = marketInfo.Name
+		coins[0].Symbol = marketInfo.Symbol
+		coins[0].Price = marketInfo.PriceUsd
+		coins[0].Currency = "USD"
+
+		return coins, nil
 	}
 }

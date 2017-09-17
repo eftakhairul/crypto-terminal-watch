@@ -18,7 +18,6 @@ func Render(coins []crypto.Coin) {
 		data[i][0] = coins[i].Name
 		data[i][1] =coins[i].Symbol
 		data[i][2] = fmt.Sprintf("%.10f %s", coins[i].Price, coins[i].Currency)
-		fmt.Println(coins[i].Currency)
 	}
 
 

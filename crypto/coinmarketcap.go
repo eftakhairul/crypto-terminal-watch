@@ -20,7 +20,7 @@ func (c Coinmarketcap) GetCoinData(name string) ([]Coin, error) {
 	marketInfo, err := coinApi.GetCoinData(name)
 	if err != nil {
 		fmt.Println(err)
-		return coins, err
+		return coins, errs
 	} else {
 
 		coins[0].Name = marketInfo.Name

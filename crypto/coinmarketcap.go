@@ -9,7 +9,11 @@ import (
 	"net/http"
 )
 
-const BASEURL = "https://api.coinmarketcap.com/v1"
+const (BASEURL = "https://api.coinmarketcap.com/v1"
+	   DEFAULT_CURRENCY = "USD"
+	   DEFAULT_CRYPTO_CURRENCY = "all"
+	   DEFAULT_LIMIT = -1
+)
 
 type Coinmarketcap struct {
 }
@@ -18,16 +22,25 @@ func New() *Coinmarketcap {
 	return new(Coinmarketcap)
 }
 
-func (c Coinmarketcap) GetCoinData(name string) ([]Coin, error) {
-	var defaultCurrency string = "USD"
-	response, _ := makeRequest(makeUrlByParams(name, defaultCurrency, -1))
+func (c Coinmarketcap) GetCoinData(cryptoCurrency string) ([]Coin, error) {
+	response, err := makeRequest(makeUrlByParams(cryptoCurrency, DEFAULT_CURRENCY, DEFAULT_LIMIT))
+	if err != nil {
+		return nil, err
+	}
+
 	return processResponse(response, defaultCurrency)
 }
 
 func (c Coinmarketcap) GetAllCoinData(currency string, limit int)([]Coin, error) {
-	response, _ := makeRequest(makeUrlByParams("all", currency, limit))
+	response, err := makeRequest(makeUrlByParams(DEFAULT_CRYPTO_CURRENCY, currency, limit))
+	if err != nil {
+		return nil, err
+	}
+
 	return processResponse(response, currency)
 }
+
+
 
 func processResponse(response []byte, currency string) ([]Coin, error) {
 	data := []map[string]string{}

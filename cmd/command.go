@@ -1,3 +1,4 @@
+// Package cmd provides terminal interface for crypto coins
 package cmd
 
 

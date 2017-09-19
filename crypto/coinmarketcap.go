@@ -7,7 +7,7 @@ import (
 	"encoding/json"
 	"io/ioutil"
 	"net/http"
-	)
+)
 
 const BASEURL = "https://api.coinmarketcap.com/v1"
 
@@ -18,14 +18,13 @@ func New() *Coinmarketcap {
 	return new(Coinmarketcap)
 }
 
-
 func (c Coinmarketcap) GetCoinData(name string) ([]Coin, error) {
 	var defaultCurrency string = "USD"
 	response, _ := makeRequest(makeUrlByParams(name, defaultCurrency, -1))
 	return processResponse(response, defaultCurrency)
 }
 
-func (c Coinmarketcap)GetAllCoinData(currency string, limit int)([]Coin, error) {
+func (c Coinmarketcap) GetAllCoinData(currency string, limit int)([]Coin, error) {
 	response, _ := makeRequest(makeUrlByParams("all", currency, limit))
 	return processResponse(response, currency)
 }
@@ -34,14 +33,12 @@ func processResponse(response []byte, currency string) ([]Coin, error) {
 	data := []map[string]string{}
 
 	err := json.Unmarshal(response, &data)
-
 	if err != nil {
 		return nil, err
 	}
 
 
 	coins := make([]Coin, len(data))
-
 	for i := 0; i < len(data); i++ {
 		coins[i].Name = data[i]["name"]
 		coins[i].Symbol = data[i]["symbol"]
@@ -81,6 +78,7 @@ func makeRequest(url string) ([]byte, error) {
 	if err != nil {
 		return nil, err
 	}
+
 	resp, err := doReq(req)
 	if err != nil {
 		return nil, err
@@ -99,10 +97,12 @@ func doReq(req *http.Request) ([]byte, error) {
 		return nil, err
 	}
 	defer resp.Body.Close()
+
 	body, err := ioutil.ReadAll(resp.Body)
 	if err != nil {
 		return nil, err
 	}
+
 	if 200 != resp.StatusCode {
 		return nil, fmt.Errorf("%s", body)
 	}

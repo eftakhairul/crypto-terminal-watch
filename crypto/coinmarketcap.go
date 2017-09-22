@@ -28,7 +28,7 @@ func (c Coinmarketcap) GetCoinData(cryptoCurrency string) ([]Coin, error) {
 		return nil, err
 	}
 
-	return processResponse(response, defaultCurrency)
+	return processResponse(response, DEFAULT_CURRENCY)
 }
 
 func (c Coinmarketcap) GetAllCoinData(currency string, limit int)([]Coin, error) {
@@ -55,7 +55,7 @@ func processResponse(response []byte, currency string) ([]Coin, error) {
 	for i := 0; i < len(data); i++ {
 		coins[i].Name = data[i]["name"]
 		coins[i].Symbol = data[i]["symbol"]
-		coins[i].Price, _ = strconv.ParseFloat(data[i][fmt.Sprintf("price_%s",strings.ToLower(currency))], 64)
+		coins[i].Price, _ = strconv.ParseFloat(data[i][fmt.Sprintf("price_%s", strings.ToLower(currency))], 64)
 		coins[i].Currency = currency
 	}
 
@@ -66,7 +66,7 @@ func processResponse(response []byte, currency string) ([]Coin, error) {
 func makeUrlByParams(cryptoCurrency string, currency string, limit int) string {
 	var url string = fmt.Sprintf("%s/ticker/", BASEURL)
 
-	if cryptoCurrency != "all" {
+	if cryptoCurrency != DEFAULT_CRYPTO_CURRENCY {
 		url = fmt.Sprintf("%s/%s/", url, cryptoCurrency)
 	}
 
@@ -76,8 +76,8 @@ func makeUrlByParams(cryptoCurrency string, currency string, limit int) string {
 		params = append(params, fmt.Sprintf("limit=%v", limit))
 	}
 
-	if currency != "USD" {
-		params = append(params, fmt.Sprintf("convert=%s", currency))
+	if currency != DEFAULT_CURRENCY {
+		params = append(params, fmt.Sprintf("convert=%s", strings.ToLower(currency)))
 	}
 
 	return fmt.Sprintf("%s?%s", url, strings.Join(params, "&"))

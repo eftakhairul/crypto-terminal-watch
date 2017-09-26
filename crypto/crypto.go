@@ -9,16 +9,6 @@ type Crypto interface {
 	GetCoinDataByCurrency() []Coin
 }
 
-var cryptoCurrencies = map[string]string = map[string]string{
-	"BTC": "bitcoin",
-	"XBT": "bitcoin",
-	"ETH": "ethereum",
-	"BCH": "bitcoin-cash",
-	"XBC": "bitcoin-cash",
-	"XRP": "ripple",
-	"DASH": "dash",
-	"LTC": "litecoin",
-}
 
 //Coin struct
 type Coin struct {
@@ -35,10 +25,3 @@ type CryptoApi struct {
 
 
 
-func validateCryptoCurrency(name string) (string, error) {
-	if value, ok := cryptoCurrencies[name]; ok {
-		return value, nil
-	}
-
-	return nil, errors.New("can't work with 42")
-}

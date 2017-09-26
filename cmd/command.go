@@ -16,19 +16,24 @@ func Execute() {
 
 	app.Flags = []cli.Flag {
 		cli.StringFlag{
-			Name: "api",
-			Value: "coinmarketcap",
-			Usage: "API to fetch currency information",
+			Name: "currency, c",
+			Value: "USD",
+			Usage: "The currency you want see the price",
 		},
 	}
 
 	app.Action = func(c *cli.Context) error {
-		name := "ethereum"
+		ccm := crypto.New()
+		name := "ALL"
 		if c.NArg() > 0 {
 			name = c.Args().Get(0)
 		}
 
-		ccm := crypto.New()
+
+		if c.String("currency") == "spanish" {
+			fmt.Println("Hola", name)
+		}
+
 		coins, _ := ccm.GetCoinData(name)
 		Render(coins)
 

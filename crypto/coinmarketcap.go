@@ -10,12 +10,7 @@ import (
 	"strings"
 )
 
-const (
-	BASEURL                    = "https://api.coinmarketcap.com/v1"
-	DEFAULT_CURRENCY           = "USD"
-	DEFAULT_CRYPTO_CURRENCY_ID = "all"
-	DEFAULT_LIMIT              = -1
-)
+var coinmarketcapBaseUrl = "https://api.coinmarketcap.com/v1"
 
 //Impliments the Crypto interface
 type Coinmarketcap struct {
@@ -25,23 +20,28 @@ func New() *Coinmarketcap {
 	return new(Coinmarketcap)
 }
 
-//Return coin by crypocurrency such BTC or ETH
-func (c Coinmarketcap) GetCoinData(cryptoCurrency string) ([]Coin, error) {
+//Return coin by crypocurrency in Default currency: USD
+func (c Coinmarketcap) GetCoinDataByUSD(cryptoCurrency string) ([]Coin, error) {
+	return c.GetCoinData(cryptoCurrency, DEFAULT_CURRENCY)
+}
+
+//Return coin by crypocurrency (such as: BTC ETH and currency (such as: USD or CAD)
+func (c Coinmarketcap) GetCoinData(cryptoCurrency string, currency string) ([]Coin, error) {
 
 	cryptoCurrencyId, err := validateCryptoCurrency(cryptoCurrency)
 	if err != nil {
 		return nil, err
 	}
 
-	response, err := makeRequest(makeUrlByParams(cryptoCurrencyId, DEFAULT_CURRENCY, DEFAULT_LIMIT))
+	response, err := makeRequest(makeUrlByParams(cryptoCurrencyId, currency, DEFAULT_LIMIT))
 	if err != nil {
 		return nil, err
 	}
 
-	return processResponse(response, DEFAULT_CURRENCY)
+	return processResponse(response, currency)
 }
 
-//Return coins by currency and limit
+//Return coins in currency (such as: USD or CAD) and limit
 func (c Coinmarketcap) GetAllCoinData(currency string, limit int) ([]Coin, error) {
 	response, err := makeRequest(makeUrlByParams(DEFAULT_CRYPTO_CURRENCY_ID, currency, limit))
 	if err != nil {
@@ -75,7 +75,7 @@ func processResponse(response []byte, currency string) ([]Coin, error) {
 //Internal method
 //Generate API URL with query params
 func makeUrlByParams(cryptoCurrencyId string, currency string, limit int) string {
-	var url string = fmt.Sprintf("%s/ticker/", BASEURL)
+	var url = fmt.Sprintf("%s/ticker/", coinmarketcapBaseUrl)
 
 	if cryptoCurrencyId != DEFAULT_CRYPTO_CURRENCY_ID {
 		url = fmt.Sprintf("%s/%s/", url, cryptoCurrencyId)
@@ -130,11 +130,14 @@ func doReq(req *http.Request) ([]byte, error) {
 	return body, nil
 }
 
+//Validates CryptoCurrency
+//It checks in cryptoCurrencies maps that CryptoCurrency is valid or not
 func validateCryptoCurrency(cryptocurrency string) (string, error) {
 	if value, ok := cryptoCurrencies[strings.ToUpper(cryptocurrency)]; ok {
 		return value, nil
 	}
-	return "", errors.New("can't work with 42")
+
+	return "", errors.New(fmt.Sprintf("%s is not a valid cryptocurrency", cryptocurrency))
 }
 
 var cryptoCurrencies = map[string]string{

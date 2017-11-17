@@ -1,10 +1,10 @@
 package crypto
 
-//Crypto interface
-type Crypto interface {
-	GetCoinData() []Coin
-	GetCoinDataByCurrency() []Coin
-}
+const (
+	DEFAULT_CURRENCY           = "USD"
+	DEFAULT_CRYPTO_CURRENCY_ID = "all"
+	DEFAULT_LIMIT              = -1
+)
 
 //Coin struct
 type Coin struct {
@@ -12,4 +12,10 @@ type Coin struct {
 	Symbol   string
 	Price    float64
 	Currency string
+}
+
+//Crypto interface
+type Crypto interface {
+	GetCoinData(cryptoCurrency string, currency string) ([]Coin, error)
+	GetCoinDataByCurrency(currency string, limit int) ([]Coin, error)
 }

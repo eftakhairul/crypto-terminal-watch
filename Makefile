@@ -6,13 +6,12 @@ export PATH=$(shell printenv PATH):${GOPATH}/build
 default: build
 
 rebuild: build_clean
-	GOOS=$(GOOS) GOARCH=$(GOARCH) go build -v -o ./build/proxy ./src/main/*.go
+	GOOS=$(GOOS) GOARCH=$(GOARCH) go build -v -o ./build/ctw ./src/main/*.go
 
 build: vendor_get
-	GOOS=$(GOOS) GOARCH=$(GOARCH) go build -v -o ./build/proxy ./src/main/*.go
+	GOOS=$(GOOS) GOARCH=$(GOARCH) go build -v -o ./build/ctw ./src/main/*.go
 
-build_clean:
-	rm -rf ./build/proxy
+
 
 vendor_get: 
 	go get https://github.com/tools/godep

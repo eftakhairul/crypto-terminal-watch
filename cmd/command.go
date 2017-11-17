@@ -13,6 +13,13 @@ func Execute() {
 	app.Name = "crypto-terminal-watch"
 	app.Usage = "Checking crypto market"
 	app.Version = "0.0.1"
+	app.Authors = []cli.Author{
+		cli.Author{
+			Name:  "Eftakhairul Islam",
+			Email: "eftakhairul@gmail.com",
+		},
+	}
+	app.Copyright = "(c) 2017 Eftakhairul Islam"
 
 	app.Flags = []cli.Flag{
 		cli.StringFlag{
@@ -20,9 +27,9 @@ func Execute() {
 			Value: "USD",
 			Usage: "The currency you want see the price",
 		},
-		cli.StringFlag{
+		cli.IntFlag{
 			Name:  "limit, l",
-			Value: "100",
+			Value: 100,
 			Usage: "Not implemented yet",
 		},
 	}

@@ -2,7 +2,6 @@
 package cmd
 
 import (
-	"fmt"
 	"os"
 
 	"github.com/eftakhairul/crypto-terminal-watch/crypto"
@@ -20,22 +19,34 @@ func Execute() {
 			Value: "USD",
 			Usage: "The currency you want see the price",
 		},
+		cli.StringFlag{
+			Name:  "limit, l",
+			Value: "100",
+			Usage: "Not implemented yet",
+		},
 	}
 
 	app.Action = func(c *cli.Context) error {
-		ccm := crypto.New()
-		name := "ALL"
+		var coins []crypto.Coin
+		var crypto = crypto.New()
+		var cryptoCurrency = "ALL"
+		var currencyForConversation = "USD"
+
 		if c.NArg() > 0 {
-			name = c.Args().Get(0)
+			cryptoCurrency = c.Args().Get(0)
 		}
 
-		if c.String("currency") == "spanish" {
-			fmt.Println("Hola", name)
+		if c.String("currency") != "" {
+			currencyForConversation = c.String("currency")
 		}
 
-		coins, _ := ccm.GetCoinData(name)
+		if cryptoCurrency == "ALL" {
+			coins, _ = crypto.GetAllCoinData(currencyForConversation, 10)
+		} else {
+			coins, _ = crypto.GetCoinData(cryptoCurrency, currencyForConversation)
+		}
+
 		Render(coins)
-
 		return nil
 	}
 

@@ -9,9 +9,10 @@ import (
 )
 
 func Execute() {
-	app := cli.NewApp()
+	var app = cli.NewApp()
 	app.Name = "crypto-terminal-watch"
 	app.Usage = "Checking crypto market"
+	app.Version = "0.0.1"
 
 	app.Flags = []cli.Flag{
 		cli.StringFlag{

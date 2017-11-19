@@ -6,15 +6,14 @@ export PATH=$(shell printenv PATH):${GOPATH}/build
 default: build
 
 rebuild: build_clean
-	GOOS=$(GOOS) GOARCH=$(GOARCH) go build -v -o ./build/ctw ./src/main/*.go
+	GOOS=$(GOOS) GOARCH=$(GOARCH) ${GOPATH}/bin/godep go build -v -o ./build/ctw .
 
-build: vendor_get
-	GOOS=$(GOOS) GOARCH=$(GOARCH) go build -v -o ./build/ctw ./src/main/*.go
+build:
+	GOOS=$(GOOS) GOARCH=$(GOARCH) ${GOPATH}/bin/godep go build -v -o ./build/ctw .
 
-
-
-vendor_get: 
-	go get https://github.com/tools/godep
+install: 
+	go get github.com/tools/godep
+	${GOPATH}/bin/godep go build ./… 
 
 test: unit_test integration_test
 

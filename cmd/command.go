@@ -13,6 +13,7 @@ func Execute() {
 	app.Name = "crypto-terminal-watch"
 	app.Usage = "Checking crypto market"
 	app.Version = "0.0.1"
+
 	app.Authors = []cli.Author{
 		cli.Author{
 			Name:  "Eftakhairul Islam",

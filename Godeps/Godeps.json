@@ -1,0 +1,24 @@
+{
+	"ImportPath": "github.com/eftakhairul/crypto-terminal-watch",
+	"GoVersion": "go1.8",
+	"GodepVersion": "v79",
+	"Packages": [
+		"./..."
+	],
+	"Deps": [
+		{
+			"ImportPath": "github.com/mattn/go-runewidth",
+			"Comment": "v0.0.2-3-g97311d9",
+			"Rev": "97311d9f7767e3d6f422ea06661bc2c7a19e8a5d"
+		},
+		{
+			"ImportPath": "github.com/olekukonko/tablewriter",
+			"Rev": "a7a4c189eb47ed33ce7b35f2880070a0c82a67d4"
+		},
+		{
+			"ImportPath": "github.com/urfave/cli",
+			"Comment": "v1.20.0-39-g7ace96b",
+			"Rev": "7ace96b43d4bdc46f81d0d1219742b2469874cf6"
+		}
+	]
+}

@@ -10,7 +10,7 @@ import (
 
 func Execute() {
 	var app = cli.NewApp()
-	app.Name = "crypto-terminal-watch"
+	app.Name = "crypto-terminal-watch  (ctw)"
 	app.Usage = "Checking crypto market"
 	app.Version = "0.0.1"
 

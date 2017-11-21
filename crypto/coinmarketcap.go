@@ -10,14 +10,15 @@ import (
 	"strings"
 )
 
-var coinmarketcapBaseUrl = "https://api.coinmarketcap.com/v1"
-
 //Impliments the Crypto interface
 type Coinmarketcap struct {
+	baseURL string
 }
 
 func New() *Coinmarketcap {
-	return new(Coinmarketcap)
+	var coinmarketcap = new(Coinmarketcap)
+	coinmarketcap.baseURL = "https://api.coinmarketcap.com/v1"
+	return coinmarketcap
 }
 
 //Return coin by crypocurrency in Default currency: USD
@@ -33,7 +34,7 @@ func (c Coinmarketcap) GetCoinData(cryptoCurrency string, currency string) ([]Co
 		return nil, err
 	}
 
-	response, err := makeRequest(makeUrlByParams(cryptoCurrencyId, currency, DEFAULT_LIMIT))
+	response, err := makeRequest(makeURLByParams(c.baseURL, cryptoCurrencyId, currency, DEFAULT_LIMIT))
 	if err != nil {
 		return nil, err
 	}
@@ -43,7 +44,7 @@ func (c Coinmarketcap) GetCoinData(cryptoCurrency string, currency string) ([]Co
 
 //Return coins in currency (such as: USD or CAD) and limit
 func (c Coinmarketcap) GetAllCoinData(currency string, limit int) ([]Coin, error) {
-	response, err := makeRequest(makeUrlByParams(DEFAULT_CRYPTO_CURRENCY_ID, currency, limit))
+	response, err := makeRequest(makeURLByParams(c.baseURL, DEFAULT_CRYPTO_CURRENCY_ID, currency, limit))
 	if err != nil {
 		return nil, err
 	}
@@ -73,12 +74,12 @@ func processResponse(response []byte, currency string) ([]Coin, error) {
 }
 
 //Internal method
-//Generate API URL with query params
-func makeUrlByParams(cryptoCurrencyId string, currency string, limit int) string {
-	var url = fmt.Sprintf("%s/ticker/", coinmarketcapBaseUrl)
+//Generate API URL from baseURL with query params
+func makeURLByParams(baseURL string, cryptoCurrencyID string, currency string, limit int) string {
+	var url = fmt.Sprintf("%s/ticker/", baseURL)
 
-	if cryptoCurrencyId != DEFAULT_CRYPTO_CURRENCY_ID {
-		url = fmt.Sprintf("%s/%s/", url, cryptoCurrencyId)
+	if cryptoCurrencyID != DEFAULT_CRYPTO_CURRENCY_ID {
+		url = fmt.Sprintf("%s/%s/", url, cryptoCurrencyID)
 	}
 
 	params := []string{}

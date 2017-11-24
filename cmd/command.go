@@ -25,6 +25,7 @@ func Execute() {
 	app.Flags = []cli.Flag{
 		cli.StringFlag{
 			Name:  "currency, c",
+			Value: "USD",
 			Usage: "The currency you want see the price",
 		},
 		cli.IntFlag{

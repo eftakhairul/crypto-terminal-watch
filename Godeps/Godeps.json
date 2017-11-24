@@ -2,7 +2,15 @@
 	"ImportPath": "github.com/eftakhairul/crypto-terminal-watch",
 	"GoVersion": "go1.8",
 	"GodepVersion": "v79",
+	"Packages": [
+		"./..."
+	],
 	"Deps": [
+		{
+			"ImportPath": "github.com/davecgh/go-spew/spew",
+			"Comment": "v1.1.0-9-gecdeabc",
+			"Rev": "ecdeabc65495df2dec95d7c4a4c3e021903035e5"
+		},
 		{
 			"ImportPath": "github.com/mattn/go-runewidth",
 			"Comment": "v0.0.2-3-g97311d9",
@@ -11,6 +19,16 @@
 		{
 			"ImportPath": "github.com/olekukonko/tablewriter",
 			"Rev": "a7a4c189eb47ed33ce7b35f2880070a0c82a67d4"
+		},
+		{
+			"ImportPath": "github.com/pmezard/go-difflib/difflib",
+			"Comment": "v1.0.0",
+			"Rev": "792786c7400a136282c1664665ae0a8db921c6c2"
+		},
+		{
+			"ImportPath": "github.com/stretchr/testify/assert",
+			"Comment": "v1.1.4-72-g2aa2c17",
+			"Rev": "2aa2c176b9dab406a6970f6a55f513e8a8c8b18f"
 		},
 		{
 			"ImportPath": "github.com/urfave/cli",

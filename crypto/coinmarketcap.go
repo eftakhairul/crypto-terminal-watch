@@ -15,7 +15,7 @@ type Coinmarketcap struct {
 	baseURL string
 }
 
-func New() *Coinmarketcap {
+func NewCoinmarketcap() *Coinmarketcap {
 	var coinmarketcap = new(Coinmarketcap)
 	coinmarketcap.baseURL = "https://api.coinmarketcap.com/v1"
 	return coinmarketcap

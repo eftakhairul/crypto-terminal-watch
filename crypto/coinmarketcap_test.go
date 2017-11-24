@@ -1,3 +1,4 @@
+// Unit test for CoinMarketCap API
 package crypto
 
 import (
@@ -35,7 +36,7 @@ func TestGetCoinDataForCoinMarketCap(t *testing.T) {
 	}))
 	defer testServer.Close()
 
-	coinmarketcap := crypto.New()
+	coinmarketcap := crypto.NewCoinmarketcap()
 	coinmarketcap.SetBaseURL(testServer.URL)
 	coins, err := coinmarketcap.GetCoinData("BTC", "USD")
 

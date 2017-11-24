@@ -2,6 +2,7 @@
 package cmd
 
 import (
+	"fmt"
 	"os"
 
 	"github.com/eftakhairul/crypto-terminal-watch/crypto"
@@ -11,7 +12,7 @@ import (
 func Execute() {
 	var app = cli.NewApp()
 	app.Name = "crypto-terminal-watch  (ctw)"
-	app.Usage = "Checking crypto market"
+	app.Usage = "Checking crypto market \n Example: ctw --c CAD BTC"
 	app.Version = "0.0.1"
 
 	app.Authors = []cli.Author{
@@ -21,11 +22,9 @@ func Execute() {
 		},
 	}
 	app.Copyright = "(c) 2017 Eftakhairul Islam"
-
 	app.Flags = []cli.Flag{
 		cli.StringFlag{
 			Name:  "currency, c",
-			Value: "USD",
 			Usage: "The currency you want see the price",
 		},
 		cli.IntFlag{
@@ -37,7 +36,7 @@ func Execute() {
 
 	app.Action = func(c *cli.Context) error {
 		var coins []crypto.Coin
-		var crypto = crypto.New()
+		var crypto = crypto.NewCoinmarketcap()
 		var cryptoCurrency = "ALL"
 		var currencyForConversation = "USD"
 
@@ -52,6 +51,7 @@ func Execute() {
 		if cryptoCurrency == "ALL" {
 			coins, _ = crypto.GetAllCoinData(currencyForConversation, 10)
 		} else {
+			fmt.Println(cryptoCurrency, currencyForConversation)
 			coins, _ = crypto.GetCoinData(cryptoCurrency, currencyForConversation)
 		}
 

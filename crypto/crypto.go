@@ -1,3 +1,4 @@
+// Crypto package with common coin interface for all crypto related API
 package crypto
 
 const (

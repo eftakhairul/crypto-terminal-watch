@@ -21,6 +21,11 @@ func New() *Coinmarketcap {
 	return coinmarketcap
 }
 
+//Sets baseURL
+func (c *Coinmarketcap) SetBaseURL(baseURL string) {
+	c.baseURL = baseURL
+}
+
 //Return coin by crypocurrency in Default currency: USD
 func (c Coinmarketcap) GetCoinDataByUSD(cryptoCurrency string) ([]Coin, error) {
 	return c.GetCoinData(cryptoCurrency, DEFAULT_CURRENCY)

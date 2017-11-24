@@ -8,12 +8,15 @@ default: build
 rebuild: build_clean
 	GOOS=$(GOOS) GOARCH=$(GOARCH) ${GOPATH}/bin/godep go build -v -o ./build/ctw .
 
-build:
+build: build_clean
 	GOOS=$(GOOS) GOARCH=$(GOARCH) ${GOPATH}/bin/godep go build -v -o ./build/ctw .
+
+build_clean:
+	rm -rf ./build/ctw
 
 install: 
 	go get github.com/tools/godep
 	${GOPATH}/bin/godep go build ./… 
 
-test: unit_test integration_test
-
+test:
+	${GOPATH}/bin/godep go test -v crypto/coinmarketcap_test.go

@@ -2,7 +2,6 @@
 package cmd
 
 import (
-	"fmt"
 	"os"
 
 	"github.com/eftakhairul/crypto-terminal-watch/crypto"
@@ -52,7 +51,6 @@ func Execute() {
 		if cryptoCurrency == "ALL" {
 			coins, _ = crypto.GetAllCoinData(currencyForConversation, 10)
 		} else {
-			fmt.Println(cryptoCurrency, currencyForConversation)
 			coins, _ = crypto.GetCoinData(cryptoCurrency, currencyForConversation)
 		}
 

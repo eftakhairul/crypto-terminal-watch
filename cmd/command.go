@@ -33,7 +33,7 @@ func Execute() {
 		cli.IntFlag{
 			Name:  "limit, l",
 			Value: 10,
-			Usage: "Not implemented yet",
+			Usage: "Amount of crypto currency info in one request",
 		},
 	}
 

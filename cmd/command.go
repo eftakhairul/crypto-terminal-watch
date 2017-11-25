@@ -2,12 +2,15 @@
 package cmd
 
 import (
+	"fmt"
 	"os"
 
 	"github.com/eftakhairul/crypto-terminal-watch/crypto"
 	"github.com/urfave/cli"
 )
 
+// Run the command app
+// Take input from command line and prints all info into tabular format
 func Execute() {
 	var app = cli.NewApp()
 	app.Name = "crypto-terminal-watch  (ctw)"
@@ -29,29 +32,31 @@ func Execute() {
 		},
 		cli.IntFlag{
 			Name:  "limit, l",
-			Value: 100,
+			Value: 10,
 			Usage: "Not implemented yet",
 		},
 	}
 
 	app.Action = func(c *cli.Context) error {
+		var err error
 		var coins []crypto.Coin
+
+		var lookupCryptoCurrency = "ALL"
 		var crypto = crypto.NewCoinmarketcap()
-		var cryptoCurrency = "ALL"
-		var currencyForConversation = "USD"
 
 		if c.NArg() > 0 {
-			cryptoCurrency = c.Args().Get(0)
+			lookupCryptoCurrency = c.Args().Get(0)
 		}
 
-		if c.String("currency") != "" {
-			currencyForConversation = c.String("currency")
-		}
-
-		if cryptoCurrency == "ALL" {
-			coins, _ = crypto.GetAllCoinData(currencyForConversation, 10)
+		if lookupCryptoCurrency == "ALL" {
+			coins, err = crypto.GetAllCoinData(c.String("currency"), c.Int("limit"))
 		} else {
-			coins, _ = crypto.GetCoinData(cryptoCurrency, currencyForConversation)
+			coins, err = crypto.GetCoinData(lookupCryptoCurrency, c.String("currency"))
+		}
+
+		if err != nil {
+			printOnError(err)
+			return nil
 		}
 
 		Render(coins)
@@ -59,4 +64,9 @@ func Execute() {
 	}
 
 	app.Run(os.Args)
+}
+
+// Print error
+func printOnError(err error) {
+	fmt.Println("Something is went wrong. Please send an email to: eftakhairul@gmail.com")
 }

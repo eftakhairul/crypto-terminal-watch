@@ -3,6 +3,7 @@ package cmd
 import (
 	"fmt"
 	"os"
+	"time"
 
 	"github.com/eftakhairul/crypto-terminal-watch/crypto"
 	"github.com/olekukonko/tablewriter"
@@ -29,4 +30,6 @@ func Render(coins []crypto.Coin) {
 	table.SetRowLine(true)
 	table.AppendBulk(data)
 	table.Render()
+
+	fmt.Println("Last Updated: ", time.Now().Format("2006-01-02 15:04:05"))
 }

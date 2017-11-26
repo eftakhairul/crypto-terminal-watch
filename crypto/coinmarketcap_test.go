@@ -149,7 +149,9 @@ func TestGetAllCoinDataForCoinMarketCap(t *testing.T) {
 	assert.Equal(t, 5, len(coins))
 	assert.Equal(t, "Bitcoin", coins[0].Name)
 	assert.Equal(t, "BTC", coins[0].Symbol)
+	assert.Equal(t, 9440.11, coins[0].Price)
 
 	assert.Equal(t, "Bitcoin Gold", coins[4].Name)
 	assert.Equal(t, "BTG", coins[4].Symbol)
+	assert.Equal(t, 344.613, coins[0].Price)
 }

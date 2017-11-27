@@ -14,7 +14,7 @@ build: build_clean
 build_clean:
 	rm -rf ./build/ctw
 
-install: 
+setup_development: 
 	go get github.com/tools/godep
 	${GOPATH}/bin/godep go build ./… 
 

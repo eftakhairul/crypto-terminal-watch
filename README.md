@@ -2,6 +2,20 @@
 
 A terminal based app for watching cryptocurrency in different currency
 
+
+#install
+
+
+##development
+mkdir -p $GOPATH/src/github.com/eftakhairul
+git clone https://github.com/eftakhairul/crypto-terminal-watch
+make setup_development
+
+##test
+make test
+
+#docs
+
 ## Reading list
 
 - [GODEP](https://github.com/tools/godep)

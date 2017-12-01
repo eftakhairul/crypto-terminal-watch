@@ -16,7 +16,7 @@ build_clean:
 
 setup_development: 
 	go get github.com/tools/godep
-	${GOPATH}/bin/godep go build ./… 
+	${GOPATH}/bin/godep restore
 
 test:
 	${GOPATH}/bin/godep go test -v crypto/coinmarketcap_test.go

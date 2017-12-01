@@ -84,7 +84,7 @@ func makeURLByParams(baseURL string, cryptoCurrencyID string, currency string, l
 	var url = fmt.Sprintf("%s/ticker/", baseURL)
 
 	if cryptoCurrencyID != DEFAULT_CRYPTO_CURRENCY_ID {
-		url = fmt.Sprintf("%s/%s/", url, cryptoCurrencyID)
+		url = fmt.Sprintf("%s%s/", url, cryptoCurrencyID)
 	}
 
 	params := []string{}

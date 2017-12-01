@@ -7,5 +7,6 @@ branches:
   only:
   - master
 
-install: make setup_development
-  make test
+script: 
+  - make setup_development
+  - make test

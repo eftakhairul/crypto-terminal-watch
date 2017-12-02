@@ -1,21 +1,22 @@
-##Crypto Terminal Wwatch
+## Crypto Terminal Wwatch
+
 [![Build Status](https://travis-ci.org/eftakhairul/crypto-terminal-watch.svg?branch=master)](https://travis-ci.org/eftakhairul/crypto-terminal-watch)
 
 A terminal based app for watching cryptocurrency in different currency
 
 
-##development setup
+## development setup
 ```console
 mkdir -p $GOPATH/src/github.com/eftakhairul
 git clone https://github.com/eftakhairul/crypto-terminal-watch
 make setup_development
 ```
 
-##test
+## test
 ```console
 make test
 ```
-#docs
+
 
 ## Reading list
 

@@ -1,5 +1,5 @@
 ##Crypto Terminal Wwatch
-[![Build Status](https://travis-ci.org/eftakhairul/crypto-terminal-watch.svg?branch=master)
+[![Build Status](https://travis-ci.org/eftakhairul/crypto-terminal-watch.svg?branch=master)](https://travis-ci.org/eftakhairul/crypto-terminal-watch)
 
 A terminal based app for watching cryptocurrency in different currency
 

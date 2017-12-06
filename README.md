@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/eftakhairul/crypto-terminal-watch.svg?branch=master)](https://travis-ci.org/eftakhairul/crypto-terminal-watch)
 
-A terminal based app for watching cryptocurrency in different currency
+A terminal based app for watching cryptocurrency rate in different currency
 
 
 ## development setup

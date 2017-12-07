@@ -9,10 +9,12 @@ const (
 
 //Coin struct
 type Coin struct {
-	Name     string
-	Symbol   string
-	Price    float64
-	Currency string
+	Name      string
+	Symbol    string
+	Price     float64
+	Currency  string
+	Volume24  float64
+	Maxsupply string
 }
 
 //Crypto interface

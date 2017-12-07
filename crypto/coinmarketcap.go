@@ -72,6 +72,12 @@ func processResponse(response []byte, currency string) ([]Coin, error) {
 		coins[i].Name = data[i]["name"]
 		coins[i].Symbol = data[i]["symbol"]
 		coins[i].Price, _ = strconv.ParseFloat(data[i][fmt.Sprintf("price_%s", strings.ToLower(currency))], 64)
+		coins[i].Volume24, _ = strconv.ParseFloat(data[i][fmt.Sprintf("24h_volume_%s", strings.ToLower(currency))], 64)
+		if data[i]["max_supply"] != "" {
+			coins[i].Maxsupply = data[i]["max_supply"]
+		} else {
+			coins[i].Maxsupply = "0"
+		}
 		coins[i].Currency = currency
 	}
 

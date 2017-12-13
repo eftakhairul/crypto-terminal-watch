@@ -4,15 +4,19 @@
 
 A terminal based app for watching cryptocurrency rate in different currency
 
+## Platform
+* Windows
+* macOS
+* Linux
 
-## development setup
+## Development setup
 ```console
 mkdir -p $GOPATH/src/github.com/eftakhairul
 git clone https://github.com/eftakhairul/crypto-terminal-watch
 make setup_development
 ```
 
-## test
+## Test
 ```console
 make test
 ```

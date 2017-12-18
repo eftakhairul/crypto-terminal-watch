@@ -14,7 +14,7 @@ type Coin struct {
 	Price     float64
 	Currency  string
 	Volume24  float64
-	Maxsupply string
+	Maxsupply float64
 }
 
 //Crypto interface

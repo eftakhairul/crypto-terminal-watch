@@ -24,7 +24,7 @@ func Render(coins []crypto.Coin) {
 			coins[i].Symbol,
 			fmt.Sprintf("%.10f %s", coins[i].Price, coins[i].Currency),
 			fmt.Sprintf("%.2f %s", coins[i].Volume24, coins[i].Currency),
-			fmt.Sprintf("%v %s", coins[i].Maxsupply, coins[i].Symbol),
+			fmt.Sprintf("%.2f %s", coins[i].Maxsupply, coins[i].Symbol),
 		}
 	}
 

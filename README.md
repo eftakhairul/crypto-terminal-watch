@@ -1,5 +1,6 @@
-<p align="center">  
-  <h1 align="center">Crypto Terminal Watch -- ctw</h1>
+<p align="center">
+  <img alt="ctw Logo" src="https://raw.githubusercontent.com/eftakhairul/crypto-terminal-watch/master/assets/pic1.png" height="140" />
+  <h3 align="center">Crypto Terminal Watch -- ctw</h3>
   <p align="center">A terminal based app for watching cryptocurrency rate in different currency</p>
   <p align="center">
     <a href="https://travis-ci.org/eftakhairul/crypto-terminal-watch"><img alt="Travis" src="https://travis-ci.org/eftakhairul/crypto-terminal-watch.svg?branch=master"></a>    
@@ -9,9 +10,7 @@
     <a href="https://saythanks.io/to/eftakhairul"><img alt="SayThanks.io" src="https://img.shields.io/badge/SayThanks.io-%E2%98%BC-1EAEDB.svg?style=flat-square"></a>
     <a href="https://github.com/eftakhairul"><img alt="Written By: Eftakhairul Islam" src="https://img.shields.io/badge/powered%20by-Eftakhairul%20Islam-green.svg?style=flat-square"></a>
   </p>
-  <img alt="CTW Logo" src="https://raw.githubusercontent.com/eftakhairul/crypto-terminal-watch/master/assets/pic1.png" height="140" />
 </p>
-
 
 ## Example
 

@@ -9,7 +9,7 @@ import (
 	"github.com/olekukonko/tablewriter"
 )
 
-// 	Render all coins in a nice tabular format in terminal
+// Render all coins in a nice tabular format in terminal
 func Render(coins []crypto.Coin) {
 
 	if len(coins) == 0 {

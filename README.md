@@ -1,5 +1,5 @@
 <p align="center">
-  <img alt="ctw Logo" src="https://raw.githubusercontent.com/eftakhairul/crypto-terminal-watch/master/assets/pic1.png" height="140" />
+  <img alt="ctw Logo" src="https://raw.githubusercontent.com/eftakhairul/crypto-terminal-watch/master/assets/pic1.png" height="240" />
   <h3 align="center">Crypto Terminal Watch -- ctw</h3>
   <p align="center">A terminal based app for watching cryptocurrency rate in different currency</p>
   <p align="center">

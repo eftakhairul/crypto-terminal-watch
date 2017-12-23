@@ -42,21 +42,23 @@ It will returns top 20 crypto currency in GBP
 
 
 ## Manual Installation 
-* Linux [Download here] (https://github.com/eftakhairul/crypto-terminal-watch/raw/master/release/ctw_linux_amd64)
+* Linux [Download here](https://github.com/eftakhairul/crypto-terminal-watch/raw/master/release/ctw_linux_amd64)
  ```console
  cp ctw_linux_amd64 /opt
  ln -s /opt/ctw_linux_amd64 /usr/local/bin/
 ```
 
-* MacOS [Download here] (https://github.com/eftakhairul/crypto-terminal-watch/raw/master/release/ctw_darwin_amd64)
+* MacOS [Download here](https://github.com/eftakhairul/crypto-terminal-watch/raw/master/release/ctw_darwin_amd64)
  ```console
  cp ctw_darwin_amd64 /opt
  ln -s /opt/ctw_darwin_amd64 /usr/local/bin/
 ```
 
-* Windows Download here] (https://github.com/eftakhairul/crypto-terminal-watch/raw/master/release/ctw_windows_amd64.exe)
+* Windows [Download here](https://github.com/eftakhairul/crypto-terminal-watch/raw/master/release/ctw_windows_amd64.exe)
 Run ctw_windows_amd64.exe in commadline
 
+##Version
+v0.0.1 
 
 ## Development setup
 ```console

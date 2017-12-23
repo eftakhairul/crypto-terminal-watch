@@ -16,13 +16,13 @@
 ```console
 ctw BTC
 ```
-It will returns only exchnage rate in USD
+It will returns exchnage rate only for Bitcoin (BTC) in USD. It almost supports all crypto currencies.
 
 
 ```console
-ctw -c CAD BTC
+ctw -c CAD ETH
 ```
-It will returns only exchnage rate in CAD.  You can get rate in some other currencies such as GBP, EUR, AUD, JPY etc.
+It will returns exchnage rate only for Ethereum (ETH) in CAD.  You can get rate in some other currencies such as GBP, EUR, AUD, JPY etc.
 
 ```console
 ctw 

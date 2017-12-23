@@ -36,5 +36,5 @@ func Render(coins []crypto.Coin) {
 	table.AppendBulk(data)
 	table.Render()
 
-	fmt.Println("Updated at : ", time.Now().Format("2006-01-02 15:04:05"))
+	fmt.Println("Last Updated: %s EST. All information based on CoinMarketCap API.", time.Now().Format("2006-01-02 15:04:05"))
 }

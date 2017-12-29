@@ -43,6 +43,7 @@ It will returns top 20 crypto currency in GBP
 
 ## Manual Installation 
 * MacOS 
+Homebrew
  ```console
  brew tap eftakhairul/crypto-terminal-watch https://github.com/eftakhairul/crypto-terminal-watch
  brew install ctw
@@ -55,9 +56,10 @@ It will returns top 20 crypto currency in GBP
 ```
 
 * Windows [Download here](https://github.com/eftakhairul/crypto-terminal-watch/raw/master/release/ctw_windows_amd64.exe)
+
 Run ctw_windows_amd64.exe in commadline
 
-##Version
+## Version
 v0.0.1 
 
 ## Development setup

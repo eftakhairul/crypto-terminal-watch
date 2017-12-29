@@ -3,7 +3,7 @@ class Ctw < Formula
   homepage "https://github.com/eftakhairul/crypto-terminal-watch"
   url "http://apps.eftakhairul.com/ctw.tar.gz"
   version "0.0.1"
-  sha256 "f9e808910fdecfba9a07467320c199c69e711ff23bd078d9fb646d8d5c33ae74"  
+  sha256 "4f6376cfcb4c8ea464aa39f3808c7ee3bb0bf23d301ea369582a1fd6809105f1"  
 
   bottle :unneeded
 

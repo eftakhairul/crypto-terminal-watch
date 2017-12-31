@@ -12,12 +12,16 @@
   </p>
 </p>
 
-## Example
+## Examples
+```console
+ctw 
+```
+It will returns top 10 crypto currency in USD.
+
 ```console
 ctw BTC
 ```
-It will returns exchnage rate only for Bitcoin (BTC) in USD. It almost supports all crypto currencies.
-
+It will returns exchnage rate only for Bitcoin (BTC) in USD. It supports almost all the crypto currencies.
 
 ```console
 ctw -c CAD ETH
@@ -25,20 +29,14 @@ ctw -c CAD ETH
 It will returns exchnage rate only for Ethereum (ETH) in CAD.  You can get rate in some other currencies such as GBP, EUR, AUD, JPY etc.
 
 ```console
-ctw 
-```
-It will returns top 10 crypto currency in USD
-
-```console
 ctw -c EUR
 ```
 It will returns top 10 crypto currency in EUR. Default top 10 currencies. you can set limit. Look at next example.
  
-
  ```console
 ctw -c GBP -l 20
 ```
-It will returns top 20 crypto currency in GBP
+It will returns top 20 crypto currency in GBP.
 
 
 ## Manual Installation 

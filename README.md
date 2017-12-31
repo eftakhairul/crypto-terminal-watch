@@ -73,3 +73,12 @@ make test
 ```
 
 
+#### Authors 
+* [Eftakhairul Islam]
+
+####  Donate to this project
+[Donate] - Donate through paypal
+
+
+[Eftakhairul Islam]:https://eftakhairul.com
+[Donate]:https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=eftakhairul%40gmail%2ecom&lc=CA&item_name=Eftakhairul%20world&item_number=web_product&currency_code=CAD&bn=PP%2dDonationsBF%3abtn_donateCC_LG%2egif%3aNonHosted

@@ -60,8 +60,12 @@ Run ctw_windows_amd64.exe in commadline
 ## Version
 v0.0.1 
 
+## License
+MIT
+
+
 ## Wrapper of CoinMarketCap API
-[Docs](https://godoc.org/github.com/eftakhairul/crypto-terminal-watch/crypto)
+[GO Docs](https://godoc.org/github.com/eftakhairul/crypto-terminal-watch/crypto)
 
 ## Development setup
 ```console

@@ -67,6 +67,9 @@ MIT
 ## Wrapper of CoinMarketCap API
 [GO Docs](https://godoc.org/github.com/eftakhairul/crypto-terminal-watch/crypto)
 
+##Contributing
+[Here](https://github.com/eftakhairul/crypto-terminal-watch/blob/master/CONTRIBUTING.md)
+
 ## Development setup
 ```console
 mkdir -p $GOPATH/src/github.com/eftakhairul
@@ -78,7 +81,11 @@ make setup_development
 ```console
 make test
 ```
-
+### Future Plan / Features
+* Check transaction details of bitcoins by bitcoin address
+* Check transaction details of Etherium by etherium address
+* Listing all ERC20 tokens you holding by etherium address
+* Listing all ERC20 toklens with calculating real time price by etherium address
 
 #### Authors 
 * [Eftakhairul Islam]

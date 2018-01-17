@@ -67,7 +67,7 @@ MIT
 ## Wrapper of CoinMarketCap API
 [GO Docs](https://godoc.org/github.com/eftakhairul/crypto-terminal-watch/crypto)
 
-##Contributing
+## Contributing
 [Here](https://github.com/eftakhairul/crypto-terminal-watch/blob/master/CONTRIBUTING.md)
 
 ## Development setup

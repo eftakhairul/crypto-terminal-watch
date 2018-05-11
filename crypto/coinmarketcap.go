@@ -26,7 +26,7 @@ func (c *Coinmarketcap) SetBaseURL(baseURL string) {
 	c.baseURL = baseURL
 }
 
-//Return coin by crypocurrency in Default currency: USD
+// Return coin by crypocurrency in default currency: USD
 func (c Coinmarketcap) GetCoinDataByUSD(cryptoCurrency string) ([]Coin, error) {
 	return c.GetCoinData(cryptoCurrency, DEFAULT_CURRENCY)
 }
@@ -104,36 +104,22 @@ func makeURLByParams(baseURL string, cryptoCurrencyID string, currency string, l
 	return fmt.Sprintf("%s?%s", url, strings.Join(params, "&"))
 }
 
-// HTTP Request Helper
+// Internal helper function
+// Send HHT Get requests
 func makeRequest(url string) ([]byte, error) {
-	req, err := http.NewRequest("GET", url, nil)
+	response, err := http.Get(url)
+
+	if err != nil {
+		return nil, err
+	}
+	defer response.Body.Close()
+
+	body, err := ioutil.ReadAll(response.Body)
 	if err != nil {
 		return nil, err
 	}
 
-	resp, err := doReq(req)
-	if err != nil {
-		return nil, err
-	}
-
-	return resp, err
-}
-
-// HTTP Client
-func doReq(req *http.Request) ([]byte, error) {
-	client := &http.Client{}
-	resp, err := client.Do(req)
-	if err != nil {
-		return nil, err
-	}
-	defer resp.Body.Close()
-
-	body, err := ioutil.ReadAll(resp.Body)
-	if err != nil {
-		return nil, err
-	}
-
-	if 200 != resp.StatusCode {
+	if 200 != response.StatusCode {
 		return nil, fmt.Errorf("%s", body)
 	}
 

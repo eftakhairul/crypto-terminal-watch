@@ -1,3 +1,6 @@
 targets:
   ubuntu-14.04:
   centos-6:
+
+after:
+  - mv bin/crypto-terminal-watch bin/ctw

@@ -1,4 +1,4 @@
-// Crypto package with common coin interface for all crypto related API
+// Package crypto package with common coin interface for all crypto related API
 package crypto
 
 const (
@@ -7,7 +7,7 @@ const (
 	DEFAULT_LIMIT              = -1
 )
 
-//Coin struct
+// Coin struct
 type Coin struct {
 	Name      string
 	Symbol    string
@@ -17,7 +17,7 @@ type Coin struct {
 	Maxsupply float64
 }
 
-//Crypto interface
+// Crypto interface
 type Crypto interface {
 	GetCoinData(cryptoCurrency string, currency string) ([]Coin, error)
 	GetCoinDataByCurrency(currency string, limit int) ([]Coin, error)

@@ -10,28 +10,31 @@ import (
 	"strings"
 )
 
-//Impliments the Crypto interface
+// Coinmarketcap impliments the Crypto interface
+// Coinmarketcap struct
 type Coinmarketcap struct {
 	baseURL string
 }
 
+// NewCoinmarketcap creates new intance
+// It returns the new instance of Coinmarketcap
 func NewCoinmarketcap() *Coinmarketcap {
 	var coinmarketcap = new(Coinmarketcap)
 	coinmarketcap.baseURL = "https://api.coinmarketcap.com/v1"
 	return coinmarketcap
 }
 
-//Sets baseURL
+// SetBaseURL sets baseURL
 func (c *Coinmarketcap) SetBaseURL(baseURL string) {
 	c.baseURL = baseURL
 }
 
-// Return coin by crypocurrency in default currency: USD
+// GetCoinDataByUSD returns coin by crypocurrency in default currency: USD
 func (c Coinmarketcap) GetCoinDataByUSD(cryptoCurrency string) ([]Coin, error) {
 	return c.GetCoinData(cryptoCurrency, DEFAULT_CURRENCY)
 }
 
-//Return coin by crypocurrency (such as: BTC ETH and currency (such as: USD or CAD)
+// GetCoinData returns coin by crypocurrency (such as: BTC ETH and currency (such as: USD or CAD)
 func (c Coinmarketcap) GetCoinData(cryptoCurrency string, currency string) ([]Coin, error) {
 
 	cryptoCurrencyId, err := validateCryptoCurrency(cryptoCurrency)
@@ -47,7 +50,7 @@ func (c Coinmarketcap) GetCoinData(cryptoCurrency string, currency string) ([]Co
 	return processResponse(response, currency)
 }
 
-//Return coins in currency (such as: USD or CAD) and limit
+// GetAllCoinData returns coins in currency (such as: USD or CAD) and limit
 func (c Coinmarketcap) GetAllCoinData(currency string, limit int) ([]Coin, error) {
 	response, err := makeRequest(makeURLByParams(c.baseURL, DEFAULT_CRYPTO_CURRENCY_ID, currency, limit))
 	if err != nil {
@@ -57,8 +60,8 @@ func (c Coinmarketcap) GetAllCoinData(currency string, limit int) ([]Coin, error
 	return processResponse(response, currency)
 }
 
-//Internal method
-//Process the response of API
+// Internal method
+// processResponse processes the response of API
 func processResponse(response []byte, currency string) ([]Coin, error) {
 	data := []map[string]string{}
 
@@ -82,8 +85,8 @@ func processResponse(response []byte, currency string) ([]Coin, error) {
 	return coins, nil
 }
 
-//Internal method
-//Generate API URL from baseURL with query params
+// Internal method
+// makeURLByParams generates API URL from baseURL with query params
 func makeURLByParams(baseURL string, cryptoCurrencyID string, currency string, limit int) string {
 	var url = fmt.Sprintf("%s/ticker/", baseURL)
 
@@ -105,7 +108,7 @@ func makeURLByParams(baseURL string, cryptoCurrencyID string, currency string, l
 }
 
 // Internal helper function
-// Send HHT Get requests
+// makeRequest sends HHT Get requests
 func makeRequest(url string) ([]byte, error) {
 	response, err := http.Get(url)
 
@@ -126,8 +129,8 @@ func makeRequest(url string) ([]byte, error) {
 	return body, nil
 }
 
-//Validates CryptoCurrency
-//It checks in cryptoCurrencies maps that CryptoCurrency is valid or not
+// Internal helper function
+// validateCryptoCurrency checks in cryptoCurrencies maps that CryptoCurrency is valid or not
 func validateCryptoCurrency(cryptocurrency string) (string, error) {
 	if value, ok := cryptoCurrencies[strings.ToUpper(cryptocurrency)]; ok {
 		return value, nil

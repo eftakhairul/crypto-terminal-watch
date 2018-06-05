@@ -1,5 +1,5 @@
-GOOS=
-GOARCH=
+GOOS=$(shell go env GOOS)
+GOARCH=$(shell go env GOARCH)
 
 export PATH=$(shell printenv PATH):${GOPATH}/build
 

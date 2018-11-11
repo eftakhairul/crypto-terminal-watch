@@ -73,7 +73,9 @@ MIT
 ## Development setup
 ```console
 mkdir -p $GOPATH/src/github.com/eftakhairul
+cd $GOPATH/src/github.com/eftakhairul
 git clone https://github.com/eftakhairul/crypto-terminal-watch
+cd crypto-terminal-watch
 make setup_development
 ```
 

@@ -1,3 +1,4 @@
+require 'formula'
 class Ctw < Formula
   desc "ctw - A terminal based app for watching cryptocurrency rate in different currency"
   homepage "https://github.com/eftakhairul/crypto-terminal-watch"
